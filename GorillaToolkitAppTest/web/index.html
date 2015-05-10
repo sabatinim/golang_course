@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en" ng-app="myapp">
+<head>
+<meta charset="UTF-8">
+<title>My Bookshelf</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="css/foundation.css" />
+<script src="js/vendor/modernizr.js"></script>
+</head>
+<body ng-controller="MainCtl">
+
+	<div class="row">
+		<div data-offcanvas="" class="off-canvas-wrap docs-wrap">
+			<div class="inner-wrap">
+				<nav class="tab-bar">
+					<section class="left-small">
+						<a class="left-off-canvas-toggle menu-icon"><span></span></a>
+					</section>
+
+					<section class="right tab-bar-section">
+						<h1 class="title">Book Test App</h1>
+					</section>
+				</nav>
+				<aside class="left-off-canvas-menu">
+					<ul class="off-canvas-list">
+						<li><label>Actions</label></li>
+						<li><a href="" class="button" ng-click="add()">Add Book</a></li>
+					</ul>
+				</aside>
+
+				<section class="main-section">
+					<div class="row">
+						<div class="large-12">
+							<div class="medium-3 columns">
+
+								<ul class="pricing-table">
+									<li class="title">Books List</li>
+									<li class="bullet-item"
+										ng-class="{active: b.title == selected.title}"
+										ng-repeat="b in books"><a href="" ng-click="get($index)">{{b.title}}</a>
+									</li>
+								</ul>
+							</div>
+
+							<div class="medium-9 columns">
+
+								<h2 ng-show="selected.title!=undefined">Title:
+									{{selected.title}}</h2>
+								<dl ng-show="selected.author!=undefined" class="dl-horizontal">
+									<dt>Author:</dt>
+									<dd>{{selected.author}}</dd>
+								</dl>
+								<a href="" class="button" ng-click="remove(selected.idx)"
+									ng-show="selected.idx!==undefined">Remove</a>
+							</div>
+						</div>
+					</div>
+				</section>
+				<a class="exit-off-canvas"></a>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- div class="jumbotron">
+		<button class="btn btn-primary pull-right" ng-click="add()">
+			<i class="fa fa-plus"></i> Add book
+		</button>
+		<h1>My Bookshelf</h1>
+	</div>
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-3 well">
+				<h3>Books</h3>
+				<ul class="nav nav-pills nav-stacked">
+					<li ng-class="{active: b.title == selected.title}"
+						ng-repeat="b in books"><a href="" ng-click="get($index)">{{b.title}}</a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-sm-6" ng-show="selected">
+				<h2>{{selected.title}}</h2>
+				<dl class="dl-horizontal">
+					<dt>Author:</dt>
+					<dd>{{selected.author}}</dd>
+				</dl>
+			</div>
+			<div class="col-sm-3" ng-show="selected">
+				<button class="btn btn-primary form-control"
+					ng-click="update(selected.idx)">
+					<i class="fa fa-pencil"></i> Update this book
+				</button>
+				<button class="btn btn-danger form-control"
+					ng-click="remove(selected.idx)">
+					<i class="fa fa-trash-o"></i> Remove this book
+				</button>
+			</div>
+		</div>
+	</div -->
+
+	<script src="https://code.angularjs.org/1.4.0-rc.1/angular.min.js"></script>
+	<script
+		src="https://code.angularjs.org/1.4.0-rc.1/angular-resource.min.js"></script>
+	<script src="book_controller.js"></script>
+
+	<script src="js/vendor/jquery.js"></script>
+	<script src="js/vendor/fastclick.js"></script>
+	<script src="js/foundation.min.js"></script>
+
+	<script>
+		$(document).foundation();
+	</script>
+
+</body>
+</html>
