@@ -22,8 +22,6 @@ import (
 	"github.com/gorilla/mux"
 )
 
-
-
 func listBooks(w http.ResponseWriter, r *http.Request) (interface{}, *handlerError) {
 	
 	return books, nil
