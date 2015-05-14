@@ -15,24 +15,9 @@
  * limitations under the License.
  */
 
-package main
+package interfaces
 
 import (
-	//"object_oriented"
-	"base"
-	
-	)
 
-func main() {
-	//base.Bitwise()
-	base.Integer()
-	base.Str_compare()
-	base.CharAt()
-	base.SplitString()
-	base.MatchString()
-	base.FormatString()
-	
-	//object_oriented.InstanceStruct()
-	//object_oriented.OverrideMethod()
-	//object_oriented.Polymorphism()		
-}
+)
+
