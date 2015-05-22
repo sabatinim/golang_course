@@ -21,35 +21,44 @@ import (
 	"fmt"
 )
 
+func f(x int) {
+	fmt.Println("x=", x)
+}
+
+var t int = 100
+
+func ft() {
+	fmt.Println("t=", t)
+}
+
+//multiple value return
+func multiple_return() (int, int) {
+	return 5, 6
+}
+
+//variadic func
+func variadic_func(args ...int) int {
+	tot := 0
+	for _, val_arg := range args {
+		tot += val_arg
+	}
+	return tot
+}
+
 func main() {
+	fmt.Println("--- variable scope ---")
+	var x int = 10
+	f(x)
+	ft()
+	fmt.Println("\n--- returning multiple values ---")
+	one, two := multiple_return()
 
-	// Use bitwise OR | to get the bits that are in 1 OR 2
-	// 1     = 00000001
-	// 2     = 00000010
-	// 1 | 2 = 00000011 = 3
-	fmt.Println(1 | 2)
+	fmt.Printf("one,two := multiple_return() - one=%d two=%d\n", one, two)
+	fmt.Println("\n--- variadic function ---")
+	fmt.Println("variadic_func(1,2,3,4) = ",variadic_func(1,2,3,4))
 
-	// Use bitwise OR | to get the bits that are in 1 OR 5
-	// 1     = 00000001
-	// 5     = 00000101
-	// 1 | 5 = 00000101 = 5
-	fmt.Println(1 | 5)
+	fmt.Println("\n--- closure ---")
 
-	// Use bitwise XOR ^ to get the bits that are in 3 OR 6 BUT NOT BOTH
-	// 3     = 00000011
-	// 6     = 00000110
-	// 3 ^ 6 = 00000101 = 5
-	fmt.Println(3 ^ 6)
 
-	// Use bitwise AND & to get the bits that are in 3 AND 6
-	// 3     = 00000011
-	// 6     = 00000110
-	// 3 & 6 = 00000010 = 2
-	fmt.Println(3 & 6)
-
-	// Use bit clear AND NOT &^ to get the bits that are in 3 AND NOT 6 (order matters)
-	// 3      = 00000011
-	// 6      = 00000110
-	// 3 &^ 6 = 00000001 = 1
-	fmt.Println(3 &^ 6)
+	
 }

@@ -1,3 +1,20 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package main
 
 import (
@@ -66,7 +83,46 @@ func main() {
 	fmt.Println("\n-- make slice --")
 	var makeSlice = make([]int, 10)
 	fmt.Println("makeSlice  = ", makeSlice)
-	fmt.Println("\n-- slice capacity --")
 
+	fmt.Println("\n-- slice capacity --")
+	var ar = [10]int{1, 2, 3, 4, 5, 6, 7, 8, 9}
+	var a = ar[5:7]
+	fmt.Println("ar= ", ar)
+	fmt.Println("a= ", a)
+	fmt.Println("len(a)= ", len(a), " cap(a)=", cap(a))
+	var b = ar[0:4]
+	fmt.Println("b= ", b)
+	fmt.Println("len(b)= ", len(b), " cap(b)=", cap(b))
+
+	fmt.Println("\n-- resizing  slice --")
+
+	var sl = make([]int, 0, 100)
+	fmt.Println("len(sl)= ", len(sl), " cap(sl)=", cap(sl))
+	for i := 0; i < 50; i++ {
+		len := len(sl)
+		sl = sl[0 : i+1]
+		sl[len] = i + 1
+	}
+	fmt.Println("len(sl)= ", len(sl), " cap(sl)=", cap(sl))
+
+	fmt.Println("\n-- append --")
+	slice1 := []int{1, 2, 3}
+	slice2 := append(slice1, 4, 5, 6)
+	fmt.Println("slice1 = ", slice1)
+	fmt.Println("slice2 = ",slice2)
+
+	fmt.Println("\n-- copy --")
+	slice2 = make([]int, 2)
+	copy(slice2,slice1)
+	fmt.Println("slice1 original = ", slice1)
+	fmt.Println("slice2 copy = ",slice2)
+	
+	fmt.Println("\n-- range --")
+	for index,value :=range originalArr{
+		fmt.Println("i:[",index,"] v:[",value,"]")
+		
+		}
+	
+	
 
 }
