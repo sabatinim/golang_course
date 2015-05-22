@@ -15,24 +15,21 @@
  * limitations under the License.
  */
 
+//Execute ./main arg1 arg2 arg3
 package main
 
 import (
-	//"object_oriented"
-	"base"
-	
-	)
+	"fmt"
+	"os"
+	"strings"
+)
 
 func main() {
-	//base.Bitwise()
-	base.Integer()
-	base.Str_compare()
-	base.CharAt()
-	base.SplitString()
-	base.MatchString()
-	base.FormatString()
-	
-	//object_oriented.InstanceStruct()
-	//object_oriented.OverrideMethod()
-	//object_oriented.Polymorphism()		
+	who := "World!"
+	if len(os.Args) > 1 {
+		who = strings.Join(os.Args[1:], " - ")
+	} else {
+		panic("Usage ./main World!!!")
+	}
+	fmt.Println("Hello ", who)
 }
