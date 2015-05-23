@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package object_oriented
+package main
 
 import (
 	"fmt"
@@ -49,7 +49,7 @@ func (sItem *SpecialItem) Cost() float64 {
 	return sItem.price * float64(sItem.quantity)*2
 }
 */
-func OverrideMethod() {
+func main() {
 	specialItem := SpecialItem{Item{"xBox_One", 3.56, 5}, 2}
 	fmt.Println("Instance Address ", specialItem)
 	fmt.Println("", specialItem.quantity, " - ", specialItem.id, " cost is ", specialItem.Cost())

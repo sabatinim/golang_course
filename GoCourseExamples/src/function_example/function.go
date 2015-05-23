@@ -45,6 +45,47 @@ func variadic_func(args ...int) int {
 	return tot
 }
 
+//closure
+func eventgenerator() func() int {
+	i := int(0)
+	return func() int {
+		ret := i
+		i += 1
+		return ret
+	}
+}
+
+//defer
+func first() {
+	fmt.Println("first")
+}
+func second() {
+	fmt.Println("second")
+}
+
+//defer & panic
+
+func defer_and_panic() {
+
+	defer func() {
+		str := recover()
+		fmt.Println(str)
+	}()
+	panic("PANIC")
+
+}
+
+//higher order func
+func slice_index(limit int, predicate func(val int) bool) int {
+
+	for i := 0; i < limit; i++ {
+		if predicate(i) {
+			return i
+		}
+	}
+	return -1
+}
+
 func main() {
 	fmt.Println("--- variable scope ---")
 	var x int = 10
@@ -55,10 +96,42 @@ func main() {
 
 	fmt.Printf("one,two := multiple_return() - one=%d two=%d\n", one, two)
 	fmt.Println("\n--- variadic function ---")
-	fmt.Println("variadic_func(1,2,3,4) = ",variadic_func(1,2,3,4))
+	fmt.Println("variadic_func(1,2,3,4) = ", variadic_func(1, 2, 3, 4))
 
-	fmt.Println("\n--- closure ---")
+	fmt.Println("\n--- closure 1/2 ---")
+	add := func(a, b int) int {
+		return a + b
+	}
+	ret := add(1, 3)
+	fmt.Println("add(1,3) = ", ret)
+	//parameter scope
+	var counter int = 0
+	increment := func() {
+		counter += 1
+	}
+	fmt.Println("pointer to increment func = ", increment)
+	fmt.Println("counter = ", counter, " - execute incrment()")
+	increment()
+	fmt.Println("counter = ", counter, " - execute incrment()")
+	increment()
+	fmt.Println("counter = ", counter)
 
+	fmt.Println("\n--- closure 2/2 ---")
+	count := eventgenerator()
+	fmt.Println("count() ", count())
+	fmt.Println("count() ", count())
+	fmt.Println("count() ", count())
 
-	
+	fmt.Println("\n--- defer ---")
+	defer first()
+	second()
+	second()
+
+	fmt.Println("\n--- defer&panic ---")
+	defer_and_panic()
+
+	fmt.Println("\n--- higher order function ---")
+	xs:=[]int{1,2,3,5}
+	fmt.Println("-",slice_index(len(xs),func(i int)bool{ return xs[i]==5 }))
+
 }
