@@ -1,4 +1,4 @@
-package db_init
+package main
 
 import (
 	"github.com/jinzhu/gorm"
@@ -6,6 +6,7 @@ import (
 	//"github.com/mattn/go-sqlite3"
 	"fmt"
 	_ "github.com/lib/pq"
+	
 )
 
 var myDb gorm.DB
@@ -23,7 +24,7 @@ func init() {
 	db.CreateTable(&Address{})
 	db.CreateTable(&Email{})
 	db.CreateTable(&Language{})
-	myDb = db
+ 	myDb = db
 }
 
 func GetDb() gorm.DB {

@@ -24,9 +24,9 @@ import (
 	"github.com/gorilla/mux"
 )
 
-
 // list of all of the books
 var books = make([]book, 0)
+
 
 func main() {
 	// command line flags
