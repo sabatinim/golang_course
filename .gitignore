@@ -17,7 +17,3 @@ logs
 /*/dist
 .idea
 /*/alf_data_dev
-/*/bin
-/*/*/bin
-/*/pkg
-/*/*/pkg
