@@ -6,7 +6,7 @@ import (
 )
 
 func BenchmarkTestAverage(b *testing.B) {
-	b.N = 10000
+	b.N = 10
 	for i := 0; i < b.N; i++ {
 		var v float64
 		v = average_pkg.Average([]float64{1, 2})

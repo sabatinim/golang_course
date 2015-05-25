@@ -118,6 +118,7 @@ func main() {
 	//fmt.Println(<-intChannel)
 	//go suck(intChannel)
 
+	//pump and suck with stream in function pump
 	//stream:=pumpWithChann()
 	//go suck(1,stream)
 	//go suck(2,stream)
@@ -125,7 +126,7 @@ func main() {
 	//for i := 0; i < 1000; i++ {
 	//	go simpleWork()
 	//}
-
+	//pump and suck with stream in function pump and suck
 	//suchWithChann(pumpWithChann())
 	donechannel, errchannel := work_routine()
 	go log_routine(donechannel, errchannel)

@@ -73,8 +73,9 @@ func main() {
 	
 	fmt.Println("-- interface -- ")
 
-	var p = MyPoint{3, 4}
 	var intf AbsInterface
+	
+	var p = MyPoint{3, 4}
 	intf = &p
 	fmt.Println("ref ", intf.Abs())
 

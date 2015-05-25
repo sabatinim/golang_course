@@ -47,7 +47,7 @@ func variadic_func(args ...int) int {
 
 //closure
 func eventgenerator() func() int {
-	i := int(0)
+	i := int(1)
 	return func() int {
 		ret := i
 		i += 1

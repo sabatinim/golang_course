@@ -27,7 +27,6 @@ import (
 // list of all of the books
 var books = make([]book, 0)
 
-
 func main() {
 	// command line flags
 	port := flag.Int("port", 8080, "port to serve on")

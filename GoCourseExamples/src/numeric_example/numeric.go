@@ -32,6 +32,7 @@ func main() {
 	var uinteger uint
 	var uintegerptr uintptr
 
+
 	fmt.Println("SizeOf(integer)", unsafe.Sizeof(integer))
 	fmt.Println("SizeOf(integer32)", unsafe.Sizeof(integer32))
 	fmt.Println("SizeOf(integer64)", unsafe.Sizeof(integer64))
