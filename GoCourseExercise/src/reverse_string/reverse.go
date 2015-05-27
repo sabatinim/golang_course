@@ -25,12 +25,15 @@ import (
 
 // IsPalindrome in ascii
 func IsPalindromeAscii(s string) bool {
+	fmt.Println("addr ",&s)
+	
 	if len(s) <= 1 {
 		return true
 	}
 	if s[0] != s[len(s)-1] {
 		return false
 	}
+	
 	return IsPalindromeAscii(s[1 : len(s)-1])
 }
 
@@ -41,6 +44,7 @@ func IsPalindromeUtf8(s string) bool {
 	}
 	first, sizeOfFirst := utf8.DecodeRuneInString(s)
 	last, sizeOfLast := utf8.DecodeLastRuneInString(s)
+	fmt.Printf("f = %q, l = %q %d",first,last,&s)
 	if first != last {
 		return false
 	}
@@ -51,6 +55,8 @@ func IsPalindromeUtf8(s string) bool {
 
 func main() {
 	var word string = "anna"
+	fmt.Println(&word, " addr ", IsPalindromeAscii(word))
+	
 	fmt.Println(word, " is palindrome ascii ", IsPalindromeAscii(word))
 	fmt.Println(word, " is palindrome utf8 ", IsPalindromeUtf8(word))
 

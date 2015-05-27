@@ -19,6 +19,7 @@ package main
 
 import (
 	"fmt"
+	"reflect"
 )
 
 type Stack struct {
@@ -55,7 +56,8 @@ func (s *Stack) Pop() (value interface{}) {
 
 func main() {
 	stack := new(Stack)
-
+	
+	stack.Push(12)
 	stack.Push("Things")
 	stack.Push("and")
 	stack.Push("Stuff")
@@ -63,7 +65,8 @@ func main() {
 	for stack.Len() > 0 {
 		// We have to do a type assertion because we get back a variable of type
 		// interface{} while the underlying type is a string.
-		fmt.Printf("%s ", stack.Pop().(string))
-	}
-	fmt.Println()
+		val_ptr:=stack.Pop()
+		fmt.Println(reflect.TypeOf(val_ptr).Kind().String())
+		
+		}
 }
